@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // GitHub Pages で直接アクセスされたときに index.html に回す
+      const redirectTo = window.location.pathname.replace(/^\/[^\/]+/, '') + window.location.search + window.location.hash;
+      window.location.replace('/your-repo-name/index.html' + redirectTo);
+    </script>
+  </head>
+  <body>
+    <h1>Redirecting...</h1>
+  </body>
+</html>
