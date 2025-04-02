@@ -2,26 +2,13 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Redirecting...</title>
     <script>
-      const pathname = window.location.pathname;
-      const search = window.location.search;
-      const hash = window.location.hash;
-
-      const repoName = '/flashCard';
-
-      // ルートパスを除去したパスを保存する（basename に合わせる）
-      const relativePath = pathname.startsWith(repoName)
-        ? pathname.slice(repoName.length)
-        : pathname;
-
-      sessionStorage.setItem('redirectPath', relativePath + search + hash);
-
-      // index.html にリダイレクト
-      window.location.replace(repoName + '/index.html');
+      // GitHub Pages で直接アクセスされたときに index.html に回す
+      const redirectTo = window.location.pathname.replace(/^\/[^\/]+/, '') + window.location.search + window.location.hash;
+      window.location.replace('/flashCard/index.html' + redirectTo);
     </script>
   </head>
   <body>
-    <h1>Redirecting to app...</h1>
+    <h1>Redirecting...</h1>
   </body>
 </html>
